@@ -1,26 +1,32 @@
 import React, {useState} from 'react'
+import UseFormfields from './UseFormfields'
 
 export default function Form() {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+
+  const {fileds,handleChange} = UseFormfields({
+    email: '',
+    password: ''
+  })
 
   return (
     <form className='form'>
         <div className='form-group'>
             <label htmlFor="email"> Email Address</label>
             <input 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={fileds.email}
+            onChange={handleChange}
                 name='email'
                 type='email'
                 className='form-control' />
         </div>
         <div className='form-group'>
-            <label htmlFor="email"> Email Address</label>
+            <label htmlFor="email"> Passworld </label>
             <input 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={fileds.password}
+            onChange={handleChange}
                 name='password'
                 type='password'
                 className='form-control' />
