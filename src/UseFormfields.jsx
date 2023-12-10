@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useDebugValue} from 'react'
 
 export default function UseFormfields(init) {
     const [fileds, setFileds] = useState(init)
@@ -10,6 +10,9 @@ export default function UseFormfields(init) {
           [target.name] : target.value
         })
       }
+
+
+      useDebugValue(fileds, fileds => `${Object.keys(fileds).length} fileds`)
 
       return{fileds, handleChange}
 }
